@@ -25,8 +25,8 @@ let tacoCatInc = {
 // YOUR CODE BELOW
 tacoCatInc["currentInventory"] = function () {
   let num = 0;
-  for (let keys in this) {
-    let curr = this[keys];
+  for (let key in this) {
+    let curr = this[key];
     for (let dish in curr) {
       let dish2 = curr[dish];
       num += dish2.cost * dish2.quantity;
@@ -35,18 +35,30 @@ tacoCatInc["currentInventory"] = function () {
   return num;
 };
 tacoCatInc["sale"] = function (order) {
+  let total = 0;
+  debugger;
   for (let keys in this) {
     let curr = this[keys];
-    for (curr in order) {
-      for (let x in curr) {
-        let curr1 = curr[x];
-        if (x === order.key) {
-          this.cash = curr1.cost;
-          debugger;
-          curr1.cost;
-          return this.quantity - 1;
-        }
-      }
-    }
+    let curr1 = this[keys][curr];
+    // for (curr in order) {
+    //   for (let x in curr) {
+    // let curr1 = curr[x];
+    // if (x === order.key) {
+    //   this.cash = curr1.cost;
+    // curr1.cost;
+    total += curr1.cost * curr1.quantity;
+    curr1.quantity - 1;
+    this.cash += curr1.cost * curr1.quantity;
+    return this.cash;
   }
 };
+//     }
+//   }
+// };
+let order = {
+  gourmetShell: "hard treat shell",
+  gourmetFishFilling: "sardines",
+  gourmetSeasoning: "treat dust",
+};
+
+tacoCatInc.sale(order);
