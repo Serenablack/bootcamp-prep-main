@@ -8,7 +8,7 @@ array method as closely as possible
 let sum = 0;
 
 function addToSum(num) {
-    sum += num;
+  sum += num;
 }
 
 let nums = [1, 2, 3];

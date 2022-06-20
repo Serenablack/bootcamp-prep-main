@@ -4,7 +4,7 @@ function dogBreeder(name, age) {
   if (name && age) {
     obj.name = name;
     obj.age = age;
-  } else if (typeOf (name) === "number") {
+  } else if (typeof name === "number") {
     obj.age = name;
     obj.name = "Steve";
   } else {
